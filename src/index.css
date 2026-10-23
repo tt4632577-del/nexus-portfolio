@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-primary: #08090b;
+    --color-bg-surface: #0e1015;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-accent-lime: #ccff00;
+    --color-accent-cyan: #00f0ff;
+  }
+
+  html {
+    color-scheme: dark;
+    background-color: #08090b;
+  }
+
+  body {
+    background-color: #08090b;
+    color: #f5f6f8;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #08090b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f242f;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ccff00;
+  }
+
+  /* Accessibility focus ring */
+  *:focus-visible {
+    outline: 2px solid #ccff00;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-glow-lime {
+    text-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
+  }
+  .text-glow-cyan {
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  }
+  .border-gradient-subtle {
+    border-image: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0.02)) 1;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
