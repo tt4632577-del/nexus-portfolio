@@ -94,6 +94,81 @@
   animation: linePulse 3.5s ease-in-out infinite;
 }
 
+@keyframes roadStreak {
+  0% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+}
+
+.animate-road-streak {
+  animation: roadStreak 2.4s linear infinite;
+}
+
+@keyframes roadStreakFast {
+  0% {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.4;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(-140%);
+    opacity: 0;
+  }
+}
+
+.animate-road-streak-fast {
+  animation: roadStreakFast 1.6s linear infinite;
+}
+
+@keyframes carSuspension {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2.5px) rotate(0.25deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-1.5px) rotate(-0.25deg);
+  }
+}
+
+.animate-car-cruise {
+  animation: carSuspension 3.8s ease-in-out infinite;
+}
+
+@keyframes headlightPulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-headlight-pulse {
+  animation: headlightPulse 3s ease-in-out infinite;
+}
+
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion';
-import { ArrowDown, ArrowUpRight, Github, Linkedin, MapPin, Terminal, Shield, Sparkles } from 'lucide-react';
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Github,
+  Linkedin,
+  MapPin,
+  Terminal,
+  Shield,
+  Sparkles,
+  Gauge,
+  Play,
+  Pause,
+} from 'lucide-react';
 import { Button } from '../ui/Button';
 import { profileData } from '../../data/profile';
 
 export const HeroSection: React.FC = () => {
-  const [carImageError, setCarImageError] = useState(false);
+  const [carAngle, setCarAngle] = useState<'perspective' | 'frontal'>('perspective');
+  const [isCruising, setIsCruising] = useState<boolean>(true);
+  const [headlightsOn, setHeadlightsOn] = useState<boolean>(true);
   const shouldReduceMotion = useReducedMotion();
 
   // Mouse coordinate values for gentle parallax tilt
@@ -233,7 +247,7 @@ export const HeroSection: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Right Column: Hindustan Contessa Cinematic Visual Showcase (Desktop: 5 cols) */}
+        {/* Right Column: Authentic Hindustan Contessa Moving Showcase (Desktop: 5 cols) */}
         <div className="lg:col-span-5 relative flex flex-col items-center justify-center w-full [perspective:1200px]">
           
           {/* Parallax-Enabled Automotive Display Card */}
@@ -252,43 +266,169 @@ export const HeroSection: React.FC = () => {
             }}
             className="relative w-full rounded-3xl bg-nexus-surface border border-nexus-border p-3 sm:p-4 shadow-2xl overflow-hidden group hover:border-nexus-borderAccent transition-colors duration-500"
           >
-            {/* Top Frame Telemetry */}
-            <div className="flex items-center justify-between px-3 py-2 text-[11px] font-mono text-nexus-dim border-b border-nexus-border/60 mb-3">
+            {/* Top Frame Telemetry & Interactive Angle Switcher */}
+            <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 text-[11px] font-mono border-b border-nexus-border/60 mb-3">
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-nexus-crimson" />
-                <span className="text-nexus-secondary uppercase tracking-wider">HINDUSTAN CONTESSA</span>
+                <span className={`w-2 h-2 rounded-full ${isCruising ? 'bg-nexus-crimson animate-ping' : 'bg-nexus-dim'}`} />
+                <span className="text-white font-semibold uppercase tracking-wider">HINDUSTAN CONTESSA</span>
+                <span className="text-nexus-dim hidden sm:inline">•</span>
+                <span className="text-nexus-crimsonBright text-[10px] hidden sm:inline font-bold">1984–2002</span>
               </div>
-              <span className="text-nexus-dim">HERITAGE CLASSIC</span>
+
+              {/* View Angle Switcher Tabs */}
+              <div className="flex items-center gap-1 bg-nexus-elevated/80 p-0.5 rounded-lg border border-nexus-border">
+                <button
+                  type="button"
+                  onClick={() => setCarAngle('perspective')}
+                  className={`px-2 py-0.5 rounded text-[10px] uppercase font-mono transition-colors ${
+                    carAngle === 'perspective'
+                      ? 'bg-nexus-crimson text-white font-bold shadow'
+                      : 'text-nexus-muted hover:text-white'
+                  }`}
+                  aria-label="Show 3/4 perspective view"
+                >
+                  3/4 Angle
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCarAngle('frontal')}
+                  className={`px-2 py-0.5 rounded text-[10px] uppercase font-mono transition-colors ${
+                    carAngle === 'frontal'
+                      ? 'bg-nexus-crimson text-white font-bold shadow'
+                      : 'text-nexus-muted hover:text-white'
+                  }`}
+                  aria-label="Show frontal view"
+                >
+                  Front Stance
+                </button>
+              </div>
             </div>
 
-            {/* Cinematic Image Frame with Slow Reveal & Crimson Light Sweep */}
+            {/* Cinematic Image Frame with Suspension Motion & Speed Road Streaks */}
             <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center">
-              <img
-                src={carImageError ? '/images/hindustan-contessa-hero.svg' : '/images/hindustan-contessa-hero.webp'}
-                alt="Classic Hindustan Contessa Automotive Heritage"
-                onError={() => setCarImageError(true)}
-                className="w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-105"
-              />
+              
+              {/* Dynamic Suspension & Idle Drift Container */}
+              <div
+                className={`relative w-full h-full ${
+                  isCruising && !shouldReduceMotion ? 'animate-car-cruise' : ''
+                }`}
+              >
+                <picture>
+                  <source
+                    srcSet={
+                      carAngle === 'perspective'
+                        ? '/images/hindustan-contessa-hero.webp'
+                        : '/images/hindustan-contessa-front.webp'
+                    }
+                    type="image/webp"
+                  />
+                  <img
+                    src={
+                      carAngle === 'perspective'
+                        ? '/images/hindustan-contessa-hero.jpg'
+                        : '/images/hindustan-contessa-front.jpg'
+                    }
+                    alt="Authentic Hindustan Contessa Classic Indian Muscle Sedan"
+                    className="w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-105"
+                    loading="eager"
+                  />
+                </picture>
+
+                {/* Night Cruise Headlight Beams (Active when headlights/cruising on) */}
+                {headlightsOn && carAngle === 'perspective' && (
+                  <div
+                    className="absolute pointer-events-none animate-headlight-pulse"
+                    style={{
+                      top: '46%',
+                      right: '2%',
+                      width: '42%',
+                      height: '35%',
+                      background: 'radial-gradient(ellipse at 15% 30%, rgba(255, 230, 180, 0.45) 0%, rgba(215, 25, 32, 0.25) 35%, transparent 70%)',
+                      filter: 'blur(12px)',
+                      transform: 'rotate(-4deg)',
+                    }}
+                    aria-hidden="true"
+                  />
+                )}
+
+                {headlightsOn && carAngle === 'frontal' && (
+                  <div
+                    className="absolute pointer-events-none animate-headlight-pulse"
+                    style={{
+                      bottom: '10%',
+                      left: '8%',
+                      right: '8%',
+                      height: '40%',
+                      background: 'radial-gradient(ellipse at 50% 20%, rgba(255, 230, 180, 0.35) 0%, rgba(215, 25, 32, 0.2) 40%, transparent 70%)',
+                      filter: 'blur(16px)',
+                    }}
+                    aria-hidden="true"
+                  />
+                )}
+              </div>
+
+              {/* Dynamic Speed Streaks / Moving Asphalt Horizon */}
+              {isCruising && !shouldReduceMotion && (
+                <div className="absolute bottom-2 inset-x-0 h-10 pointer-events-none overflow-hidden" aria-hidden="true">
+                  <div className="absolute bottom-1 w-24 h-[1.5px] bg-gradient-to-r from-transparent via-nexus-crimsonBright to-transparent animate-road-streak" />
+                  <div className="absolute bottom-3 w-36 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent animate-road-streak-fast" style={{ animationDelay: '0.8s' }} />
+                  <div className="absolute bottom-5 w-20 h-[1.5px] bg-gradient-to-r from-transparent via-nexus-crimson to-transparent animate-road-streak" style={{ animationDelay: '1.4s' }} />
+                </div>
+              )}
 
               {/* Cinematic Vignette Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-nexus-bg via-transparent to-transparent opacity-70 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-nexus-bg/80 via-transparent to-transparent opacity-60 pointer-events-none" />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
 
-              {/* Small Crimson Light Sweep Sheen */}
+              {/* Crimson Light Sweep Sheen */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-2xl" aria-hidden="true">
-                <div className="w-[140%] h-full bg-gradient-to-r from-transparent via-nexus-crimson/25 to-transparent animate-crimson-sweep" />
+                <div className="w-[140%] h-full bg-gradient-to-r from-transparent via-nexus-crimson/20 to-transparent animate-crimson-sweep" />
+              </div>
+
+              {/* Moving Status Badge Overlay (Glassmorphism) */}
+              <div className="absolute bottom-3 left-3 flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-nexus-text">
+                <span className={`w-1.5 h-1.5 rounded-full ${isCruising ? 'bg-emerald-400 animate-pulse' : 'bg-nexus-dim'}`} />
+                <span>{isCruising ? 'CRUISE MODE: ACTIVE' : 'IDLE: STANDBY'}</span>
               </div>
             </div>
 
-            {/* Bottom Technical Specifications Tag */}
-            <div className="mt-3 pt-3 border-t border-nexus-border/60 flex items-center justify-between text-[11px] font-mono text-nexus-muted px-2">
+            {/* Bottom Technical Specifications Tag & Live Cruise Controls */}
+            <div className="mt-3 pt-3 border-t border-nexus-border/60 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-nexus-muted px-2">
               <span className="flex items-center gap-1.5 text-nexus-secondary">
-                <Shield className="w-3 h-3 text-nexus-crimson" />
-                Precision Engineering
+                <Shield className="w-3.5 h-3.5 text-nexus-crimson" />
+                <span>Payana Heritage • Karnataka KA-04</span>
               </span>
-              <span className="text-nexus-dim">
-                Classic Muscle Architecture
-              </span>
+
+              {/* Interactive Motion / Headlight Controls */}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setIsCruising(!isCruising)}
+                  className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono border transition-all ${
+                    isCruising
+                      ? 'border-nexus-crimson/60 bg-nexus-crimson/15 text-nexus-crimsonBright font-semibold'
+                      : 'border-nexus-border bg-nexus-elevated text-nexus-muted hover:text-white'
+                  }`}
+                  title="Toggle Cruise Suspension & Road Motion"
+                >
+                  {isCruising ? <Pause className="w-2.5 h-2.5" /> : <Play className="w-2.5 h-2.5" />}
+                  <span>{isCruising ? 'Motion On' : 'Motion Off'}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setHeadlightsOn(!headlightsOn)}
+                  className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono border transition-all ${
+                    headlightsOn
+                      ? 'border-amber-500/60 bg-amber-500/10 text-amber-300 font-semibold'
+                      : 'border-nexus-border bg-nexus-elevated text-nexus-muted hover:text-white'
+                  }`}
+                  title="Toggle Headlight Beams"
+                >
+                  <Sparkles className="w-2.5 h-2.5" />
+                  <span>{headlightsOn ? 'Lights On' : 'Lights Off'}</span>
+                </button>
+              </div>
             </div>
           </motion.div>
 
@@ -302,8 +442,8 @@ export const HeroSection: React.FC = () => {
             }}
             className="mt-4 px-4 py-1.5 rounded-full bg-nexus-elevated border border-nexus-border text-[11px] font-mono text-nexus-secondary flex items-center gap-2 shadow-card"
           >
-            <Sparkles className="w-3 h-3 text-nexus-crimson" />
-            <span>Automotive Aesthetics Meets Modern Software Architecture</span>
+            <Gauge className="w-3.5 h-3.5 text-nexus-crimson" />
+            <span>Classic Indian Muscle • Precision Software Architecture</span>
           </motion.div>
         </div>
       </div>
