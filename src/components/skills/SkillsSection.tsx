@@ -22,7 +22,7 @@ export const SkillsSection: React.FC = () => {
   return (
     <section
       id="skills"
-      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-nexus-border/40 relative"
+      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-nexus-border relative scroll-mt-24"
       aria-label="Technical Skills"
     >
       <SectionHeader
@@ -36,10 +36,10 @@ export const SkillsSection: React.FC = () => {
         <button
           type="button"
           onClick={() => setSelectedCategory(null)}
-          className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-lime ${
+          className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-crimson ${
             selectedCategory === null
-              ? 'bg-nexus-lime text-black font-semibold'
-              : 'bg-nexus-surface border border-nexus-border text-nexus-muted hover:text-nexus-text'
+              ? 'bg-nexus-crimson text-white font-semibold shadow-sm'
+              : 'bg-nexus-surface border border-nexus-border text-nexus-secondary hover:text-white'
           }`}
         >
           All Domains ({skillsData.length})
@@ -53,10 +53,10 @@ export const SkillsSection: React.FC = () => {
               key={cat.category}
               type="button"
               onClick={() => setSelectedCategory(isSelected ? null : cat.category)}
-              className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-lime ${
+              className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-crimson ${
                 isSelected
-                  ? 'bg-nexus-lime text-black font-semibold'
-                  : 'bg-nexus-surface border border-nexus-border text-nexus-muted hover:text-nexus-text'
+                  ? 'bg-nexus-crimson text-white font-semibold shadow-sm'
+                  : 'bg-nexus-surface border border-nexus-border text-nexus-secondary hover:text-white'
               }`}
             >
               {cat.title} ({count})
@@ -78,12 +78,12 @@ export const SkillsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="rounded-2xl bg-nexus-surface border border-nexus-border p-6 flex flex-col justify-between hover:border-nexus-lime/30 transition-all duration-300 group shadow-card"
+              className="rounded-2xl bg-nexus-surface border border-nexus-border p-6 flex flex-col justify-between hover:border-nexus-borderAccent transition-all duration-300 group shadow-card"
             >
               <div>
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-nexus-card border border-nexus-border flex items-center justify-center text-nexus-lime group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-nexus-elevated border border-nexus-border flex items-center justify-center text-nexus-crimson group-hover:scale-105 transition-transform">
                     <Icon className="w-5 h-5" />
                   </div>
                   <span className="font-mono text-[11px] text-nexus-dim uppercase tracking-wider">
@@ -91,10 +91,10 @@ export const SkillsSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="font-display font-bold text-lg text-nexus-text mb-2 group-hover:text-nexus-lime transition-colors">
+                <h3 className="font-display font-bold text-lg text-nexus-text mb-2 group-hover:text-nexus-crimsonBright transition-colors">
                   {cat.title}
                 </h3>
-                <p className="text-xs text-nexus-muted leading-relaxed mb-6 font-sans">
+                <p className="text-xs text-nexus-secondary leading-relaxed mb-6 font-sans">
                   {cat.description}
                 </p>
               </div>
@@ -107,12 +107,12 @@ export const SkillsSection: React.FC = () => {
                       key={skill.name}
                       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-mono transition-all ${
                         skill.highlight
-                          ? 'bg-nexus-card border-nexus-lime/30 text-nexus-text hover:border-nexus-lime'
-                          : 'bg-nexus-card/60 border-nexus-border text-nexus-muted hover:text-nexus-text'
+                          ? 'bg-nexus-elevated border-nexus-crimson/40 text-white hover:border-nexus-crimson'
+                          : 'bg-nexus-surface border-nexus-border text-nexus-secondary hover:text-white'
                       }`}
                     >
                       {skill.highlight && (
-                        <Sparkles className="w-3 h-3 text-nexus-lime shrink-0" />
+                        <Sparkles className="w-3 h-3 text-nexus-crimson shrink-0" />
                       )}
                       <span>{skill.name}</span>
                     </div>
@@ -125,10 +125,10 @@ export const SkillsSection: React.FC = () => {
       </div>
 
       {/* Technical Philosophy Note */}
-      <div className="mt-10 p-5 rounded-xl bg-nexus-surface/50 border border-nexus-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-nexus-dim">
+      <div className="mt-10 p-5 rounded-xl bg-nexus-surface border border-nexus-border flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-nexus-dim">
         <div className="flex items-center gap-2">
-          <Terminal className="w-4 h-4 text-nexus-lime shrink-0" />
-          <span>Continuous Engineering: Focused on building end-to-end capabilities with strong typing and testability.</span>
+          <Terminal className="w-4 h-4 text-nexus-crimson shrink-0" />
+          <span className="text-nexus-secondary">Continuous Engineering: Focused on building robust, typed, and production-tested systems.</span>
         </div>
         <div className="text-nexus-muted">
           All skills verified through real implementations

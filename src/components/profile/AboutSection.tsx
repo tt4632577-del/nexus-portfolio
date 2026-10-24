@@ -9,7 +9,7 @@ export const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-nexus-border/40 relative"
+      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-nexus-border relative scroll-mt-24"
       aria-label="About Tarun Gupta"
     >
       <SectionHeader
@@ -41,20 +41,20 @@ export const AboutSection: React.FC = () => {
           {/* Narrative Paragraphs */}
           <div className="space-y-5 text-nexus-text/90 leading-relaxed font-sans text-base sm:text-lg">
             <p>
-              I am an <strong className="text-nexus-lime font-semibold">MCA student at Presidency University, Bengaluru</strong>, specializing in software development, backend engineering, and applied artificial intelligence.
+              I am an <strong className="text-white font-semibold">MCA student at Presidency University, Bengaluru</strong>, specializing in software development, backend engineering, and applied artificial intelligence.
             </p>
-            <p className="text-nexus-muted">
+            <p className="text-nexus-secondary">
               My engineering focus is centered on combining foundational programming principles with intelligent systems to create software that solves genuine, day-to-day challenges. Rather than chasing fleeting AI hype, I build dependable tools—ranging from offline desktop assistants and perimeter video intelligence to public-service accessibility applications.
             </p>
-            <p className="text-nexus-muted">
+            <p className="text-nexus-secondary">
               I hold a Bachelor of Computer Applications from Vijayanagara Sri Krishnadevaraya University, Ballari, where I developed strong core capabilities in object-oriented programming, data structures, and database management. Currently, I am expanding those foundations into modern microservice design, edge inference, and enterprise systems.
             </p>
           </div>
 
           {/* Core Engineering Pillars */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-            <div className="p-4 rounded-xl bg-nexus-surface/80 border border-nexus-border hover:border-nexus-lime/30 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-nexus-card border border-nexus-border flex items-center justify-center text-nexus-lime mb-3">
+            <div className="p-4 rounded-xl bg-nexus-surface border border-nexus-border hover:border-nexus-borderAccent transition-colors">
+              <div className="w-8 h-8 rounded-lg bg-nexus-elevated border border-nexus-border flex items-center justify-center text-nexus-crimson mb-3">
                 <Server className="w-4 h-4" />
               </div>
               <h4 className="font-display font-semibold text-sm text-nexus-text mb-1">
@@ -65,8 +65,8 @@ export const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-nexus-surface/80 border border-nexus-border hover:border-nexus-cyan/30 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-nexus-card border border-nexus-border flex items-center justify-center text-nexus-cyan mb-3">
+            <div className="p-4 rounded-xl bg-nexus-surface border border-nexus-border hover:border-nexus-borderAccent transition-colors">
+              <div className="w-8 h-8 rounded-lg bg-nexus-elevated border border-nexus-border flex items-center justify-center text-white mb-3">
                 <Cpu className="w-4 h-4" />
               </div>
               <h4 className="font-display font-semibold text-sm text-nexus-text mb-1">
@@ -77,8 +77,8 @@ export const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-nexus-surface/80 border border-nexus-border hover:border-white/20 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-nexus-card border border-nexus-border flex items-center justify-center text-white mb-3">
+            <div className="p-4 rounded-xl bg-nexus-surface border border-nexus-border hover:border-nexus-borderAccent transition-colors">
+              <div className="w-8 h-8 rounded-lg bg-nexus-elevated border border-nexus-border flex items-center justify-center text-nexus-secondary mb-3">
                 <Compass className="w-4 h-4" />
               </div>
               <h4 className="font-display font-semibold text-sm text-nexus-text mb-1">
@@ -91,8 +91,8 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Academic Milestone Summary Callout */}
-          <div className="p-5 rounded-xl bg-nexus-surface border border-nexus-border/80">
-            <div className="text-xs font-mono text-nexus-lime uppercase tracking-widest mb-3 flex items-center gap-2">
+          <div className="p-5 rounded-xl bg-nexus-surface border border-nexus-border">
+            <div className="text-xs font-mono text-nexus-crimson uppercase tracking-widest mb-3 flex items-center gap-2">
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>Academic Alignment & Current Status</span>
             </div>
@@ -101,13 +101,13 @@ export const AboutSection: React.FC = () => {
                 <div className="font-display font-bold text-nexus-text">
                   Master of Computer Applications (MCA)
                 </div>
-                <div className="text-xs text-nexus-muted">
+                <div className="text-xs text-nexus-secondary">
                   Presidency University, Bengaluru • 2025–2027
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Badge variant="lime">Enrolled</Badge>
-                <Badge variant="cyan">Open to Internships</Badge>
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="crimson">Enrolled</Badge>
+                <Badge variant="neutral">Bengaluru, India</Badge>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ export const AboutSection: React.FC = () => {
           <div className="pt-2 flex items-center gap-2">
             <a
               href="#philosophy"
-              className="inline-flex items-center gap-2 text-xs font-mono text-nexus-lime hover:text-nexus-limeHover transition-colors group"
+              className="inline-flex items-center gap-2 text-xs font-mono text-nexus-crimson hover:text-nexus-crimsonBright transition-colors group"
             >
               <span>Explore my development philosophy</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

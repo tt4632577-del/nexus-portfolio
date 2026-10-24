@@ -4,56 +4,94 @@
 
 @layer base {
   :root {
-    --color-bg-primary: #08090b;
-    --color-bg-surface: #0e1015;
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-accent-lime: #ccff00;
-    --color-accent-cyan: #00f0ff;
+    --color-bg-primary: #080808;
+    --color-bg-surface: #111111;
+    --color-bg-elevated: #181818;
+    --color-border: #292929;
+    --color-accent-crimson: #D71920;
+    --color-accent-crimson-hover: #F12730;
+    --color-accent-crimson-bright: #FF343B;
   }
 
   html {
     color-scheme: dark;
-    background-color: #08090b;
+    background-color: #080808;
   }
 
   body {
-    background-color: #08090b;
-    color: #f5f6f8;
+    background-color: #080808;
+    color: #F5F5F5;
     overflow-x: hidden;
   }
 
-  /* Custom subtle scrollbar */
+  /* Custom refined scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #08090b;
+    background: #080808;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1f242f;
+    background: #202020;
     border-radius: 3px;
+    border: 1px solid #292929;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #ccff00;
+    background: #D71920;
   }
 
-  /* Accessibility focus ring */
+  /* Accessibility focus ring in Crimson */
   *:focus-visible {
-    outline: 2px solid #ccff00;
+    outline: 2px solid #D71920;
     outline-offset: 2px;
   }
 }
 
 @layer utilities {
-  .text-glow-lime {
-    text-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
-  }
-  .text-glow-cyan {
-    text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  .text-glow-crimson {
+    text-shadow: 0 0 25px rgba(215, 25, 32, 0.45);
   }
   .border-gradient-subtle {
-    border-image: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0.02)) 1;
+    border-image: linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.02)) 1;
   }
+}
+
+/* Cinematic Keyframe Animations */
+@keyframes crimsonSweep {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(220%) skewX(-20deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-crimson-sweep {
+  animation: crimsonSweep 7s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes linePulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleX(0.95);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scaleX(1);
+  }
+}
+
+.animate-line-pulse {
+  animation: linePulse 3.5s ease-in-out infinite;
 }
 
 /* Reduced motion preference */
@@ -63,5 +101,9 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .animate-crimson-sweep,
+  .animate-line-pulse {
+    animation: none !important;
   }
 }

@@ -24,61 +24,61 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.12 }}
-      className="relative rounded-3xl bg-nexus-surface border border-nexus-border/90 p-7 sm:p-9 md:p-10 shadow-2xl hover:border-nexus-lime/40 transition-all duration-300 group flex flex-col justify-between overflow-hidden"
+      className="relative rounded-3xl bg-nexus-surface border border-nexus-border p-5 sm:p-8 md:p-10 shadow-2xl hover:border-nexus-borderAccent transition-all duration-300 group flex flex-col justify-between overflow-hidden"
     >
-      {/* Subtle background glow */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-nexus-lime/5 rounded-full blur-3xl group-hover:bg-nexus-lime/10 transition-colors pointer-events-none" />
+      {/* Subtle crimson background glow */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-nexus-crimson/5 rounded-full blur-3xl group-hover:bg-nexus-crimson/10 transition-colors pointer-events-none" />
 
       <div>
         {/* Top telemetry bar */}
-        <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-nexus-border/60">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-nexus-border/60">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-xs text-nexus-lime font-bold">
+            <span className="font-mono text-xs text-nexus-crimson font-bold">
               // {numberStr}
             </span>
             <span className="text-nexus-border">|</span>
-            <Badge variant="lime">{project.category}</Badge>
+            <Badge variant="crimson">{project.category}</Badge>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-nexus-lime"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-nexus-crimson"></span>
             </span>
-            <span className="font-mono text-xs text-nexus-dim">{project.status}</span>
+            <span className="font-mono text-xs text-nexus-muted">{project.status}</span>
           </div>
         </div>
 
         {/* Project Header */}
         <div className="mb-4">
-          <h3 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-nexus-text group-hover:text-nexus-lime transition-colors">
+          <h3 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-nexus-text group-hover:text-nexus-crimsonBright transition-colors">
             {project.title}
           </h3>
-          <p className="font-mono text-xs sm:text-sm text-nexus-lime/90 mt-1">
+          <p className="font-mono text-xs sm:text-sm text-nexus-crimson mt-1">
             {project.subtitle}
           </p>
         </div>
 
         {/* Tagline */}
-        <p className="font-sans text-sm sm:text-base text-nexus-text/90 font-medium mb-4 leading-relaxed">
+        <p className="font-sans text-sm sm:text-base text-nexus-text font-medium mb-4 leading-relaxed">
           {project.tagline}
         </p>
 
         {/* Description */}
-        <p className="font-sans text-xs sm:text-sm text-nexus-muted leading-relaxed mb-6">
+        <p className="font-sans text-xs sm:text-sm text-nexus-secondary leading-relaxed mb-6">
           {project.description}
         </p>
 
         {/* Tech Stack Pills */}
         <div className="mb-8">
           <div className="text-[10px] font-mono text-nexus-dim uppercase tracking-wider mb-2 flex items-center gap-1.5">
-            <Layers className="w-3 h-3 text-nexus-cyan" />
-            Core Technologies
+            <Layers className="w-3 h-3 text-nexus-crimson" />
+            <span>Core Technologies</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-2.5 py-1 rounded-md bg-nexus-card border border-nexus-border text-xs font-mono text-nexus-muted group-hover:border-nexus-lime/20 transition-colors"
+                className="px-2.5 py-1 rounded-md bg-nexus-elevated border border-nexus-border text-xs font-mono text-nexus-secondary group-hover:border-nexus-borderAccent transition-colors"
               >
                 {tech}
               </span>
@@ -90,11 +90,11 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
       {/* Action Footer */}
       <div className="pt-6 border-t border-nexus-border/60 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-xs font-mono text-nexus-dim">
-          <Terminal className="w-3.5 h-3.5 text-nexus-lime" />
-          <span>Detailed Case Study Available</span>
+          <Terminal className="w-3.5 h-3.5 text-nexus-crimson" />
+          <span className="text-nexus-muted">Detailed Case Study Available</span>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
           {project.githubUrl && (
             <Button
               href={project.githubUrl}

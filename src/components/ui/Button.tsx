@@ -26,17 +26,17 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-lime disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+    'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-crimson disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
 
   const variants = {
     primary:
-      'bg-nexus-lime text-black hover:bg-nexus-limeHover font-semibold shadow-sm hover:shadow-glow-lime active:scale-[0.98]',
+      'bg-nexus-crimson text-white hover:bg-nexus-crimsonHover font-semibold shadow-sm hover:shadow-glow-crimson active:scale-[0.98]',
     secondary:
-      'bg-nexus-surface text-nexus-text border border-nexus-border hover:border-nexus-lime/40 hover:bg-nexus-card active:scale-[0.98]',
+      'bg-nexus-surface text-nexus-text border border-nexus-border hover:border-nexus-borderAccent hover:bg-nexus-elevated active:scale-[0.98]',
     outline:
-      'bg-transparent text-nexus-text border border-nexus-border hover:border-nexus-lime hover:text-nexus-lime active:scale-[0.98]',
+      'bg-transparent text-nexus-text border border-nexus-border hover:border-nexus-crimson hover:text-nexus-crimsonBright active:scale-[0.98]',
     ghost:
-      'bg-transparent text-nexus-muted hover:text-nexus-text hover:bg-white/5',
+      'bg-transparent text-nexus-secondary hover:text-nexus-text hover:bg-white/5',
   };
 
   const sizes = {

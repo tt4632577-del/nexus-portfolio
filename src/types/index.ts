@@ -12,7 +12,8 @@ export interface ProfileInfo {
   location: string;
   githubUrl: string;
   linkedinUrl: string;
-  emailPlaceholder: string;
+  email: string;
+  emailPlaceholder?: string;
   avatarPath: string;
 }
 

@@ -16,7 +16,7 @@ export const ProjectsSection: React.FC = () => {
   return (
     <section
       id="projects"
-      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-nexus-border/40 relative"
+      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-nexus-border relative scroll-mt-24"
       aria-label="Projects Showcase"
     >
       <SectionHeader
@@ -38,9 +38,9 @@ export const ProjectsSection: React.FC = () => {
       </div>
 
       {/* Additional Projects Section Divider */}
-      <div className="mb-10 pt-8 border-t border-nexus-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="mb-10 pt-8 border-t border-nexus-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 font-mono text-xs text-nexus-cyan mb-1">
+          <div className="flex items-center gap-2 font-mono text-xs text-nexus-crimson mb-1">
             <Layers className="w-3.5 h-3.5" />
             <span>EXTENDED ARTIFACTS</span>
           </div>
@@ -49,8 +49,8 @@ export const ProjectsSection: React.FC = () => {
           </h3>
         </div>
         <div className="text-xs font-mono text-nexus-dim flex items-center gap-1.5">
-          <Terminal className="w-3.5 h-3.5 text-nexus-lime" />
-          <span>Showing 3 additional prototypes</span>
+          <Terminal className="w-3.5 h-3.5 text-nexus-crimson" />
+          <span className="text-nexus-muted">Showing 3 additional systems</span>
         </div>
       </div>
 
@@ -67,13 +67,13 @@ export const ProjectsSection: React.FC = () => {
       </div>
 
       {/* Verification Transparency Callout */}
-      <div className="mt-12 p-5 rounded-2xl bg-nexus-surface/60 border border-nexus-border flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-nexus-dim">
+      <div className="mt-12 p-5 rounded-2xl bg-nexus-surface border border-nexus-border flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-nexus-dim">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-nexus-lime shrink-0" />
-          <span>All 6 projects represent real technical architectures, prototypes, and genuine engineering exploration.</span>
+          <Sparkles className="w-4 h-4 text-nexus-crimson shrink-0" />
+          <span className="text-nexus-secondary">All 6 projects represent real technical architectures, prototypes, and genuine engineering exploration.</span>
         </div>
         <div className="text-nexus-muted">
-          No fabricated metrics or fake deployment claims
+          No fabricated metrics or unsupported claims
         </div>
       </div>
 

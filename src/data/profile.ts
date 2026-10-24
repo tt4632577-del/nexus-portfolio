@@ -20,6 +20,7 @@ export const profileData: ProfileInfo = {
   location: 'Bengaluru, India',
   githubUrl: 'https://github.com/tt4632577-del',
   linkedinUrl: 'https://linkedin.com/in/tarun-rock-a8a748422/',
-  emailPlaceholder: 'tarun.gupta.dev[at]email[dot]com',
+  email: 'tt4632577@gmail.com',
+  emailPlaceholder: 'tt4632577@gmail.com',
   avatarPath: '/images/tarun-profile.png',
 };

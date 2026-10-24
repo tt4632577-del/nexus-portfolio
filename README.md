@@ -1,26 +1,37 @@
-# NEXUS — Personal Developer Portfolio
+# NEXUS — CRIMSON EDITION
+### Premium Automotive-Inspired Personal Developer Portfolio
 
 > **Tarun Gupta**  
 > *Software Developer | Java Developer | AI & Machine Learning Enthusiast*  
 > Master of Computer Applications (MCA), Presidency University, Bengaluru (2025–2027)  
-> [GitHub](https://github.com/tt4632577-del) • [LinkedIn](https://linkedin.com/in/tarun-rock-a8a748422/) • Bengaluru, India
+> Bachelor of Computer Applications (BCA), Vijayanagara Sri Krishnadevaraya University, Ballari (2022–2025)  
+> 📧 [tt4632577@gmail.com](mailto:tt4632577@gmail.com) • 🌐 [LinkedIn](https://linkedin.com/in/tarun-rock-a8a748422/) • 💻 [GitHub](https://github.com/tt4632577-del) • 📍 Bengaluru, India
 
 ---
 
 ## 1. Project Overview
 
-**NEXUS** is an interactive, cinematic developer portfolio designed and engineered for Tarun Gupta. It combines high-performance 3D graphics, sophisticated micro-animations, an editorial layout, and in-depth engineering case studies suitable for internship applications, Java backend engineering opportunities, and applied AI/ML roles.
+**NEXUS — Crimson Edition** is an interactive, cinematic developer portfolio engineered for Tarun Gupta. It merges a premium automotive visual identity inspired by the classic **Hindustan Contessa** with modern software engineering principles, featuring deep-charcoal surfaces, restrained crimson accents, verified credentials, and deep-dive technical case studies.
+
+The application is tailored for software development opportunities, Java backend engineering roles, applied artificial intelligence / machine learning positions, and professional networking.
 
 ### Creative & Visual Direction
-- **Atmosphere:** Dark, cinematic, minimalist, technical sophistication.
+- **Theme:** Automotive-inspired technical sophistication, deep black and charcoal surfaces, restrained crimson telemetry.
 - **Palette:**
-  - Background: Near-black Charcoal (`#08090b`)
-  - Elevated Surfaces: `#0e1015` / `#13161d`
-  - Primary Accent: Electric Lime (`#ccff00`)
-  - Secondary Accent: Cyber Cyan (`#00f0ff`)
-  - Typography: Space Grotesk (display), Plus Jakarta Sans (body), JetBrains Mono (metrics & code)
-- **3D Hero Scene:** Interactive gyroscopic multi-ring core with a dual-layer wireframe icosahedron and orbiting telemetry nodes built in Three.js and React Three Fiber.
-- **Strict Image Fidelity:** Tarun's genuine high-resolution portrait is preserved bit-for-bit at `public/images/tarun-profile.png` with zero AI modification, no facial filters, and natural responsive framing.
+  - Background: `#080808`
+  - Surface: `#111111`
+  - Elevated Surface: `#181818`
+  - Hover Surface: `#202020`
+  - Primary Crimson: `#D71920`
+  - Hover Crimson: `#F12730`
+  - Bright Crimson: `#FF343B`
+  - Primary Text: `#F5F5F5`
+  - Secondary Text: `#A3A3A3`
+  - Border: `#292929`
+  - Accent Border: `rgba(215, 25, 32, 0.45)`
+- **Cinematic Homepage:** Asymmetric desktop composition pairing an editorial typographic presentation with a framed showcase card of the classic Hindustan Contessa.
+- **Authentic Photograph Preservation:** Tarun's genuine high-resolution portrait is preserved unmodified at `public/images/tarun-profile.png` (SHA256: `B1AA0C7F0C02F13AB18A01C3779A799B11039150B974A39318B94140D4DB976F`), presented in natural responsive aspect ratios.
+- **Micro-Animations & Parallax:** Damped spring 3D perspective mouse tilt, diagonal crimson light sweep, subtle entrance sequencing, and full `prefers-reduced-motion` accessibility compliance.
 
 ---
 
@@ -28,11 +39,11 @@
 
 - **Core Framework:** React 18 & Vite
 - **Language:** TypeScript (Strict mode enabled)
-- **Styling:** Tailwind CSS with custom NEXUS tokens
-- **3D Graphics:** Three.js, `@react-three/fiber`, `@react-three/drei`
-- **Animation & Transitions:** Framer Motion
+- **Styling:** Vanilla Tailwind CSS with custom NEXUS Crimson design tokens
+- **Animations & Micro-interactions:** Framer Motion (with `useReducedMotion`, `useSpring`, `useMotionValue`)
+- **3D & Graphics Capabilities:** Three.js, `@react-three/fiber`, `@react-three/drei`
 - **Iconography:** Lucide React
-- **Build Optimization:** Vite Rollup manual vendor chunk splitting
+- **Build Optimization:** Vite Rollup manual vendor chunk splitting (`vendor-react`, `vendor-motion`, `vendor-icons`, `vendor-three`)
 
 ---
 
@@ -42,166 +53,171 @@
 e:/My Portfolio/
 ├── public/
 │   ├── images/
-│   │   └── tarun-profile.png       # Authentic portrait of Tarun Gupta
-│   └── favicon.svg                 # Custom NEXUS geometric SVG icon
+│   │   ├── tarun-profile.png              # Authentic portrait of Tarun Gupta
+│   │   ├── hindustan-contessa-hero.webp   # Dedicated Contessa hero asset
+│   │   └── hindustan-contessa-hero.svg    # Vector fallback asset
+│   └── favicon.svg                        # Custom Crimson NEXUS SVG icon
 ├── src/
 │   ├── components/
 │   │   ├── layout/
-│   │   │   ├── Navbar.tsx          # Responsive navigation & mobile drawer
-│   │   │   ├── Footer.tsx          # Verified footer links & scroll-to-top
-│   │   │   ├── NoiseOverlay.tsx    # Cinematic subtle grain overlay
-│   │   │   └── SectionHeader.tsx   # Editorial section headers
+│   │   │   ├── Navbar.tsx                 # Dark glass navbar with mobile drawer
+│   │   │   ├── Footer.tsx                 # Crimson branding, direct email & socials
+│   │   │   ├── NoiseOverlay.tsx           # Subtle cinematic grain overlay
+│   │   │   └── SectionHeader.tsx          # Viewport-triggered animated headers
 │   │   ├── hero/
-│   │   │   ├── HeroSection.tsx     # Fullscreen hero presentation
-│   │   │   ├── HeroCanvas.tsx      # Three.js interactive gyroscopic core
-│   │   │   └── WebGLFallback.tsx   # Accessible SVG fallback
+│   │   │   ├── HeroSection.tsx            # Asymmetric Contessa cinematic presentation
+│   │   │   ├── HeroCanvas.tsx             # Preserved 3D interactive infrastructure
+│   │   │   └── WebGLFallback.tsx          # Accessible orbital rings fallback
 │   │   ├── profile/
-│   │   │   ├── AboutSection.tsx    # Engineering narrative & pillars
-│   │   │   └── ProfileCard.tsx     # Clean rectangular frame featuring photo
+│   │   │   ├── AboutSection.tsx           # Engineering narrative & core pillars
+│   │   │   └── ProfileCard.tsx            # Frame showcasing unmodified portrait
 │   │   ├── skills/
-│   │   │   └── SkillsSection.tsx   # Filterable technical capabilities grid
+│   │   │   └── SkillsSection.tsx          # Categorized technical capabilities grid
 │   │   ├── projects/
-│   │   │   ├── ProjectsSection.tsx # Top 3 featured + 3 specialized grid
-│   │   │   ├── FeaturedProjectCard.tsx
-│   │   │   ├── ProjectCard.tsx
-│   │   │   └── ProjectDetailModal.tsx # Interactive deep-dive case study modal
+│   │   │   ├── ProjectsSection.tsx        # Top 3 featured showcase + extended grid
+│   │   │   ├── FeaturedProjectCard.tsx    # Prominent featured project card
+│   │   │   ├── ProjectCard.tsx            # Compact project card
+│   │   │   └── ProjectDetailModal.tsx     # In-depth architectural case study modal
 │   │   ├── education/
-│   │   │   └── EducationSection.tsx# Verified Presidency Univ & VSKU timeline
+│   │   │   └── EducationSection.tsx       # Timeline of verified degree milestones
 │   │   ├── philosophy/
-│   │   │   └── PhilosophySection.tsx # 4 pragmatic development tenets
+│   │   │   └── PhilosophySection.tsx      # 4 pragmatic development tenets
 │   │   ├── contact/
-│   │   │   └── ContactSection.tsx  # Direct channels & email copy action
+│   │   │   └── ContactSection.tsx         # Working Gmail mailto & copy experience
 │   │   └── ui/
-│   │       ├── Button.tsx
-│   │       └── Badge.tsx
+│   │       ├── Button.tsx                 # Reusable accessible button component
+│   │       └── Badge.tsx                  # Status and technology pills
 │   ├── data/
-│   │   ├── profile.ts              # Verified personal & academic metadata
-│   │   ├── projects.ts             # 6 detailed engineering case studies
-│   │   ├── skills.ts               # Categorized technical skills
-│   │   └── education.ts            # MCA and BCA degree milestones
+│   │   ├── profile.ts                     # Verified credentials & contact info
+│   │   ├── projects.ts                    # 6 verified engineering case studies
+│   │   ├── skills.ts                      # Categorized technical skills
+│   │   └── education.ts                   # MCA & BCA degree milestones
 │   ├── lib/
-│   │   └── utils.ts
+│   │   └── utils.ts                       # ClassName merge utilities
 │   ├── types/
-│   │   └── index.ts
+│   │   └── index.ts                       # Strict TypeScript type definitions
 │   ├── App.tsx
 │   ├── main.tsx
-│   └── index.css
+│   └── index.css                          # Global tokens, scrollbar, keyframes
 ├── index.html
 ├── package.json
 ├── tsconfig.json
 ├── tailwind.config.js
 ├── vite.config.ts
-└── vercel.json
+└── vercel.json                            # Vercel SPA routing and caching rules
 ```
 
 ---
 
-## 4. Prerequisites
+## 4. Featured Engineering Projects
 
-- **Node.js:** v18.0.0 or higher (v24.x tested)
-- **npm:** v9.x or higher (v11.x tested)
-- *Note for Windows users:* If PowerShell execution policy restricts scripts, execute commands via `npm.cmd` and `npx.cmd`.
+All 6 projects represent verified architectures and practical implementations:
+
+1. **AURA — AI Desktop Voice Assistant**
+   - *Stack:* Python, Faster-Whisper, Ollama (Local LLaMA 3), OpenCV, NumPy, Edge-TTS
+   - *Focus:* Offline speech processing, local neural inference, camera vision control, and low-latency interaction.
+2. **IBVAP — AI Video Analytics Platform for Border Surveillance**
+   - *Stack:* Python, YOLOv8, ByteTrack, PaddleOCR, OpenCV, Torch
+   - *Focus:* Perimeter monitoring, real-time intrusion detection, optical character recognition for vehicle checkpoints.
+3. **Sahayak AI — Voice-First Public Service Assistant**
+   - *Stack:* Java, Spring Boot, React, Vite, Tailwind CSS, Local LLM/STT
+   - *Focus:* Multilingual voice-driven citizen assistant simplifying access to government welfare schemes and citizen documentation.
+4. **SURAKSHA — Women's Safety & Emergency Response Platform**
+   - *Stack:* Dart, Flutter, Firebase, Google Maps API
+   - *Focus:* Real-time SOS triggers, rapid location broadcast, SMS alerts to emergency contacts and emergency services.
+5. **Cloud-Native Intrusion Detection System**
+   - *Stack:* Java, Spring Boot, ONNX Runtime, Vaadin, H2, Spring Security
+   - *Focus:* Lightweight enterprise anomaly detection evaluating network packet telemetry with embedded ONNX neural models.
+6. **Image-to-Sketch Converter**
+   - *Stack:* Python, OpenCV, NumPy, Matplotlib
+   - *Focus:* Edge detection algorithms, Gaussian blur filtering, color inversion, and artistic sketch transformation.
 
 ---
 
-## 5. Getting Started
+## 5. Prerequisites & Environment
 
-### Installation
+- **Node.js:** v18.0.0 or higher (v24.x tested and supported)
+- **npm:** v9.x or higher (v11.x tested and supported)
+- *Windows Note:* If PowerShell script execution policies restrict scripts, invoke commands using `npm.cmd` and `npx.cmd`.
+
+---
+
+## 6. Installation & Local Development
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/tt4632577-del/nexus-portfolio.git
+cd nexus-portfolio
+```
+
+### 2. Install dependencies
 ```bash
 npm install
 ```
-*(On Windows PowerShell if scripts are restricted, use `npm.cmd install`)*
+*(On Windows PowerShell: `npm.cmd install`)*
 
-### Run Local Development Server
+### 3. Run development server
 ```bash
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Validate Types & Build Production Bundle
+### 4. Build for production
 ```bash
 npm run build
 ```
+Compiles TypeScript and outputs the production bundle to `dist/`.
 
-### Preview Compiled Production Bundle
+### 5. Preview production build locally
 ```bash
 npm run preview
 ```
-Runs a local static preview on [http://localhost:4173](http://localhost:4173).
+Serves the `dist/` directory at [http://localhost:4173](http://localhost:4173).
 
 ---
 
-## 6. How to Customize & Maintain
+## 7. How to Update Content & Assets
 
-### A. Updating Your Profile Details
-Open [`src/data/profile.ts`](src/data/profile.ts) to update:
-- Headline or biography introduction
-- University or degree enrollment dates
-- Location or verified social links
-- Real email address (replaces `tarun.gupta.dev[at]email[dot]com`)
+### A. Updating Contact Information
+Open [`src/data/profile.ts`](src/data/profile.ts). Update `email`, `linkedinUrl`, `githubUrl`, or location.
 
-### B. Updating or Replacing Your Photograph Safely
+### B. Updating Profile Photograph
 1. Save your photograph as a high-resolution PNG file.
-2. Name it `tarun-profile.png`.
-3. Place it in `public/images/tarun-profile.png`.
-4. The website will automatically render the new photo across the Hero capsule badge, About Section, and Profile Card with no distortion (`object-fit: cover; object-position: center 20%`).
+2. Place it at `public/images/tarun-profile.png`.
+3. The application will render it across the Hero capsule badge, About Section, and Profile Card with natural aspect ratio preservation.
 
-### C. Adding or Editing Projects
-Open [`src/data/projects.ts`](src/data/projects.ts). Each project follows this typed schema:
-```typescript
-{
-  id: 'unique-project-id',
-  title: 'Project Title',
-  subtitle: 'Subtitle / Architecture Focus',
-  tagline: 'High-level value proposition',
-  description: 'Detailed 2-3 sentence overview',
-  featured: true, // true places it in Top 3 Showcase; false in Extended Grid
-  status: 'Completed Prototype' | 'In Active Development' | 'Research & Prototype',
-  category: 'AI & Systems' | 'Computer Vision' | 'Full Stack' | 'Security',
-  technologies: ['Java', 'Spring Boot', 'Python', 'OpenCV'],
-  problemStatement: 'What bottleneck does this solve?',
-  architectureDetails: 'Detailed technical description',
-  keyFeatures: ['Feature 1', 'Feature 2'],
-  implementationHighlights: ['Technical achievement 1'],
-  challengesAndSolutions: ['Challenge faced & resolved'],
-  githubUrl: 'https://github.com/...', // Optional verified link
-  liveDemoUrl: 'https://...',         // Optional verified link
-}
-```
-
-### D. Adding or Modifying Technical Skills
-Open [`src/data/skills.ts`](src/data/skills.ts). You can add items to `skillsData`:
-```typescript
-{ name: 'Docker', category: 'Tools & Platforms', highlight: true }
-```
+### C. Updating the Hindustan Contessa Photograph
+1. Save an authentic, dark-colored Hindustan Contessa photo in WebP format.
+2. Place it at `public/images/hindustan-contessa-hero.webp`.
+3. The Hero showcase card will render the new photograph immediately.
 
 ---
 
-## 7. Deployment Instructions
+## 8. Deployment to Vercel (Free Hobby Plan)
 
-### Deploying to Vercel (Recommended)
-This repository includes a pre-configured [`vercel.json`](vercel.json) file with client-side SPA routing and static asset caching.
+This repository is pre-configured for free zero-configuration hosting on **Vercel** with client-side SPA routing via [`vercel.json`](vercel.json).
 
-#### Option 1: Via Vercel Web Dashboard
-1. Push your repository to your GitHub account (`https://github.com/tt4632577-del/nexus-portfolio`).
-2. Log in to [Vercel](https://vercel.com) and click **"Add New Project"**.
-3. Import your GitHub repository.
-4. Vercel will automatically detect **Vite**:
-   - **Framework Preset:** Vite
+### Method A: Via Vercel Web Dashboard (Recommended)
+1. Push this repository to your GitHub account (`https://github.com/tt4632577-del/nexus-portfolio`).
+2. Visit [vercel.com](https://vercel.com) and log in with GitHub.
+3. Click **"Add New..."** > **"Project"**.
+4. Select your `nexus-portfolio` repository and click **"Import"**.
+5. Vercel will automatically detect **Vite**:
+   - **Framework Preset:** `Vite`
    - **Build Command:** `npm run build`
    - **Output Directory:** `dist`
-5. Click **"Deploy"**. Your portfolio will be live with full SSL and global CDN distribution within 60 seconds.
+6. Click **"Deploy"**. The site will be live with a free `*.vercel.app` domain and automatic HTTPS SSL certificate.
 
-#### Option 2: Via Vercel CLI
+### Method B: Via Vercel CLI
 ```bash
 npx vercel
 ```
-Follow the interactive prompts to deploy directly from your terminal.
+Follow the CLI prompts to deploy directly from your local terminal.
 
 ---
 
-## 8. License & Verification Notice
+## 9. License & Verification Notice
 
 - **Author:** Tarun Gupta
-- **Academic Affiliation:** Presidency University, Bengaluru
-- **Authenticity Statement:** All skills, degrees, and project architectures represent genuine work and verified educational milestones.
+- **Academic Affiliation:** Presidency University, Bengaluru (MCA) & VSKU Ballari (BCA)
+- **Authenticity Statement:** All skills, academic milestones, and engineering architectures represent verified implementations.

@@ -43,7 +43,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
   return (
     <AnimatePresence>
       <div 
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto"
+        className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 md:p-10 overflow-y-auto"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
@@ -69,7 +69,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
           <div className="sticky top-0 z-20 flex items-center justify-between p-4 sm:p-8 bg-nexus-surface/95 backdrop-blur-md border-b border-nexus-border">
             <div className="space-y-1 pr-4">
               <div className="flex flex-wrap items-center gap-2">
-                <Badge variant={project.featured ? 'lime' : 'cyan'}>
+                <Badge variant={project.featured ? 'crimson' : 'neutral'}>
                   {project.category}
                 </Badge>
                 <Badge variant="outline">
@@ -79,7 +79,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               <h2 id="modal-title" className="font-display font-bold text-xl sm:text-3xl text-nexus-text">
                 {project.title}
               </h2>
-              <p className="font-mono text-xs sm:text-sm text-nexus-lime">
+              <p className="font-mono text-xs sm:text-sm text-nexus-crimson">
                 {project.subtitle}
               </p>
             </div>
@@ -87,7 +87,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             <button
               type="button"
               onClick={onClose}
-              className="p-2 sm:p-2.5 rounded-xl bg-nexus-card border border-nexus-border text-nexus-muted hover:text-nexus-text hover:border-nexus-lime/50 transition-colors shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-lime"
+              className="p-2 sm:p-2.5 rounded-xl bg-nexus-elevated border border-nexus-border text-nexus-muted hover:text-nexus-text hover:border-nexus-borderAccent transition-colors shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-crimson"
               aria-label="Close project modal"
             >
               <X className="w-5 h-5" />
@@ -97,18 +97,18 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
           {/* Modal Body */}
           <div className="p-6 sm:p-8 space-y-8 text-nexus-text/90">
             {/* Tagline Summary */}
-            <div className="p-4 rounded-xl bg-nexus-card border border-nexus-border/80 text-sm font-sans text-nexus-text leading-relaxed">
-              <span className="font-mono text-xs text-nexus-lime block mb-1 uppercase tracking-wider">// Overview</span>
+            <div className="p-4 rounded-xl bg-nexus-elevated border border-nexus-border text-sm font-sans text-nexus-text leading-relaxed">
+              <span className="font-mono text-xs text-nexus-crimson block mb-1 uppercase tracking-wider">// Overview</span>
               {project.tagline}
             </div>
 
             {/* Problem Statement */}
             <div className="space-y-2">
               <h4 className="font-display font-semibold text-lg text-nexus-text flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-nexus-lime" />
+                <AlertCircle className="w-4 h-4 text-nexus-crimson" />
                 Problem Statement & Motivation
               </h4>
-              <p className="text-sm text-nexus-muted leading-relaxed font-sans pl-6 border-l border-nexus-border">
+              <p className="text-sm text-nexus-secondary leading-relaxed font-sans pl-6 border-l border-nexus-border">
                 {project.problemStatement}
               </p>
             </div>
@@ -116,10 +116,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             {/* Technical Architecture */}
             <div className="space-y-2">
               <h4 className="font-display font-semibold text-lg text-nexus-text flex items-center gap-2">
-                <Layers className="w-4 h-4 text-nexus-cyan" />
+                <Layers className="w-4 h-4 text-nexus-crimson" />
                 System Architecture
               </h4>
-              <p className="text-sm text-nexus-muted leading-relaxed font-sans pl-6 border-l border-nexus-border">
+              <p className="text-sm text-nexus-secondary leading-relaxed font-sans pl-6 border-l border-nexus-border">
                 {project.architectureDetails}
               </p>
             </div>
@@ -127,16 +127,16 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             {/* Key Features */}
             <div className="space-y-3">
               <h4 className="font-display font-semibold text-lg text-nexus-text flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-nexus-lime" />
+                <CheckCircle2 className="w-4 h-4 text-nexus-crimson" />
                 Key Engineering Features
               </h4>
               <div className="grid grid-cols-1 gap-2.5">
                 {project.keyFeatures.map((feature, i) => (
                   <div 
                     key={i}
-                    className="p-3 rounded-lg bg-nexus-card/50 border border-nexus-border flex items-start gap-3 text-xs sm:text-sm text-nexus-text"
+                    className="p-3 rounded-lg bg-nexus-elevated/60 border border-nexus-border flex items-start gap-3 text-xs sm:text-sm text-nexus-text"
                   >
-                    <ChevronRight className="w-4 h-4 text-nexus-lime shrink-0 mt-0.5" />
+                    <ChevronRight className="w-4 h-4 text-nexus-crimson shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -148,13 +148,13 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               {/* Highlights */}
               <div className="space-y-2">
                 <h5 className="font-display font-semibold text-sm text-nexus-text flex items-center gap-2">
-                  <Wrench className="w-3.5 h-3.5 text-nexus-lime" />
+                  <Wrench className="w-3.5 h-3.5 text-nexus-crimson" />
                   Implementation Highlights
                 </h5>
-                <ul className="space-y-2 text-xs text-nexus-muted">
+                <ul className="space-y-2 text-xs text-nexus-secondary">
                   {project.implementationHighlights.map((hl, i) => (
-                    <li key={i} className="flex items-start gap-2 bg-nexus-card/30 p-2.5 rounded-lg border border-nexus-border/60">
-                      <span className="text-nexus-lime font-mono">•</span>
+                    <li key={i} className="flex items-start gap-2 bg-nexus-elevated/40 p-2.5 rounded-lg border border-nexus-border">
+                      <span className="text-nexus-crimson font-mono">•</span>
                       <span>{hl}</span>
                     </li>
                   ))}
@@ -164,13 +164,13 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
               {/* Challenges & Solutions */}
               <div className="space-y-2">
                 <h5 className="font-display font-semibold text-sm text-nexus-text flex items-center gap-2">
-                  <Cpu className="w-3.5 h-3.5 text-nexus-cyan" />
+                  <Cpu className="w-3.5 h-3.5 text-nexus-crimson" />
                   Engineering Challenges Solved
                 </h5>
-                <ul className="space-y-2 text-xs text-nexus-muted">
+                <ul className="space-y-2 text-xs text-nexus-secondary">
                   {project.challengesAndSolutions.map((cs, i) => (
-                    <li key={i} className="flex items-start gap-2 bg-nexus-card/30 p-2.5 rounded-lg border border-nexus-border/60">
-                      <span className="text-nexus-cyan font-mono">•</span>
+                    <li key={i} className="flex items-start gap-2 bg-nexus-elevated/40 p-2.5 rounded-lg border border-nexus-border">
+                      <span className="text-nexus-crimson font-mono">•</span>
                       <span>{cs}</span>
                     </li>
                   ))}
@@ -187,7 +187,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 rounded-md bg-nexus-card border border-nexus-border text-xs font-mono text-nexus-text"
+                    className="px-3 py-1 rounded-md bg-nexus-elevated border border-nexus-border text-xs font-mono text-nexus-secondary"
                   >
                     {tech}
                   </span>

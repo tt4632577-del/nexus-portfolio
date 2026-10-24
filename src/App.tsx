@@ -12,7 +12,7 @@ import { ContactSection } from './components/contact/ContactSection';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-nexus-bg text-nexus-text selection:bg-nexus-lime selection:text-black relative">
+    <div className="min-h-screen bg-nexus-bg text-nexus-text selection:bg-nexus-crimson selection:text-white relative">
       <NoiseOverlay />
       <Navbar />
 

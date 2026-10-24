@@ -3,7 +3,7 @@ import { cn } from '../../lib/utils';
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'lime' | 'cyan' | 'neutral' | 'outline';
+  variant?: 'crimson' | 'lime' | 'cyan' | 'neutral' | 'outline';
   size?: 'sm' | 'md';
   className?: string;
 }
@@ -15,10 +15,11 @@ export const Badge: React.FC<BadgeProps> = ({
   className,
 }) => {
   const variants = {
-    lime: 'bg-nexus-lime/10 text-nexus-lime border-nexus-lime/20',
-    cyan: 'bg-nexus-cyan/10 text-nexus-cyan border-nexus-cyan/20',
-    neutral: 'bg-white/5 text-nexus-muted border-nexus-border',
-    outline: 'bg-transparent text-nexus-dim border-nexus-border',
+    crimson: 'bg-nexus-crimson/15 text-nexus-crimsonBright border-nexus-crimson/30',
+    lime: 'bg-nexus-crimson/15 text-nexus-crimsonBright border-nexus-crimson/30', // Aliased for seamless compatibility
+    cyan: 'bg-white/5 text-nexus-text border-nexus-border',
+    neutral: 'bg-nexus-surface text-nexus-secondary border-nexus-border',
+    outline: 'bg-transparent text-nexus-muted border-nexus-border',
   };
 
   const sizes = {
