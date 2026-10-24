@@ -6,36 +6,32 @@ import { HeroSection } from './components/hero/HeroSection';
 import { AboutSection } from './components/profile/AboutSection';
 import { SkillsSection } from './components/skills/SkillsSection';
 import { ProjectsSection } from './components/projects/ProjectsSection';
-import { EducationSection } from './components/education/EducationSection';
 import { PhilosophySection } from './components/philosophy/PhilosophySection';
 import { ContactSection } from './components/contact/ContactSection';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-nexus-bg text-nexus-text selection:bg-nexus-crimson selection:text-white relative">
+    <div className="min-h-screen bg-canvas text-content-primary selection:bg-accent selection:text-white relative">
       <NoiseOverlay />
       <Navbar />
 
       <main className="relative z-10">
-        {/* Section: Hero & 3D Interactive Canvas */}
+        {/* Section 00: Recruiter-Ready Hero */}
         <HeroSection />
 
-        {/* Section 01: About & Original Verified Photograph */}
+        {/* Section 01: About & Compact Academic Background */}
         <AboutSection />
 
         {/* Section 02: Categorized Technical Capabilities */}
         <SkillsSection />
 
-        {/* Section 03: Projects Showcase & Interactive Case Studies */}
+        {/* Section 03: Projects Showcase & Case Studies */}
         <ProjectsSection />
 
-        {/* Section 04: Academic Foundations (Presidency University & VSKU) */}
-        <EducationSection />
-
-        {/* Section 05: Development Philosophy */}
+        {/* Section 04: Engineering Philosophy */}
         <PhilosophySection />
 
-        {/* Section 06: Contact & Verified Social Channels */}
+        {/* Section 05: Contact & Verified Social Channels */}
         <ContactSection />
       </main>
 

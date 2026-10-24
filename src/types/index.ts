@@ -6,6 +6,7 @@ export interface ProfileInfo {
   currentDegree: string;
   currentUniversity: string;
   currentPeriod: string;
+  currentGpa?: string;
   previousDegree: string;
   previousUniversity: string;
   previousPeriod: string;
@@ -17,9 +18,18 @@ export interface ProfileInfo {
   avatarPath: string;
 }
 
+export type SkillCategory = 
+  | 'Languages' 
+  | 'Backend' 
+  | 'Frontend & App' 
+  | 'AI / ML & GenAI' 
+  | 'Databases' 
+  | 'Tools' 
+  | 'Core Concepts';
+
 export interface SkillItem {
   name: string;
-  category: 'Programming' | 'Backend' | 'AI & Intelligent Systems' | 'Tools & Platforms' | 'Databases';
+  category: SkillCategory;
   highlight?: boolean;
 }
 
@@ -31,13 +41,13 @@ export interface ProjectItem {
   description: string;
   featured: boolean;
   technologies: string[];
-  status: 'Completed Prototype' | 'In Active Development' | 'Research & Prototype';
-  category: 'AI & Systems' | 'Computer Vision' | 'Full Stack' | 'Mobile & Safety' | 'Security';
-  problemStatement: string;
-  architectureDetails: string;
+  status: string;
+  category: string;
+  problemStatement?: string;
+  architectureDetails?: string;
   keyFeatures: string[];
-  implementationHighlights: string[];
-  challengesAndSolutions: string[];
+  implementationHighlights?: string[];
+  challengesAndSolutions?: string[];
   githubUrl?: string;
   liveDemoUrl?: string;
 }
@@ -49,6 +59,7 @@ export interface EducationItem {
   period: string;
   status: 'Current' | 'Completed';
   focus: string;
+  gpa?: string;
 }
 
 export interface NavItem {

@@ -19,25 +19,23 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`mb-12 sm:mb-16 ${isCenter ? 'text-center max-w-2xl mx-auto' : 'max-w-2xl'}`}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.25, ease: [0.16, 1, 0.3, 1] }}
+      className={`mb-10 sm:mb-12 ${isCenter ? 'text-center max-w-2xl mx-auto' : 'max-w-2xl'}`}
     >
-      <div className={`flex items-center gap-2 mb-3 ${isCenter ? 'justify-center' : ''}`}>
-        <span className="font-mono text-xs text-nexus-crimson tracking-widest uppercase">
-          // {number}
+      <div className={`flex items-center gap-2.5 mb-2.5 ${isCenter ? 'justify-center' : ''}`}>
+        <span className="font-mono text-xs font-semibold text-accent-text tracking-wider uppercase">
+          {number}
         </span>
-        <div className="h-[1px] w-12 bg-gradient-to-r from-nexus-crimson to-transparent relative overflow-hidden" aria-hidden="true">
-          <div className="absolute inset-0 bg-nexus-crimsonBright animate-line-pulse" />
-        </div>
+        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
       </div>
-      <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-nexus-text">
+      <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-content-primary">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-sm sm:text-base text-nexus-secondary leading-relaxed font-sans">
+        <p className="mt-2.5 text-sm sm:text-base text-content-secondary leading-relaxed prose-measure">
           {subtitle}
         </p>
       )}

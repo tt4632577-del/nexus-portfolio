@@ -1,0 +1,5 @@
+# Robots.txt for Tarun Gupta Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://nexus-portfolio-ecru-ten.vercel.app/sitemap.xml

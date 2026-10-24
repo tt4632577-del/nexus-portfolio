@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Mail, MapPin, Terminal } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail, MapPin, Download } from 'lucide-react';
 import { profileData } from '../../data/profile';
 
 export const Footer: React.FC = () => {
@@ -11,83 +11,87 @@ export const Footer: React.FC = () => {
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Education', href: '#education' },
-    { name: 'Philosophy', href: '#philosophy' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <footer className="border-t border-nexus-border bg-nexus-surface relative overflow-hidden" aria-label="Site Footer">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+    <footer className="border-t border-border bg-surface" aria-label="Site Footer">
+      <div className="container-shell py-12 md:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
           
-          {/* Brand & Summary Column (6 cols) */}
-          <div className="md:col-span-5">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-nexus-elevated border border-nexus-border flex items-center justify-center text-nexus-crimson">
-                <Terminal className="w-4 h-4" />
+          {/* Identity Column (6 cols) */}
+          <div className="md:col-span-6 space-y-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-md bg-surface-elevated border border-border flex items-center justify-center font-mono font-bold text-xs text-accent-text">
+                TG
               </div>
-              <span className="font-display font-bold text-lg text-nexus-text">
-                NEXUS <span className="text-nexus-crimson font-mono text-xs uppercase tracking-wider">CRIMSON</span>
+              <span className="font-display font-bold text-base text-content-primary">
+                Tarun Gupta
               </span>
             </div>
             
-            <p className="text-sm text-nexus-secondary max-w-md leading-relaxed font-sans mb-4">
-              Software Developer & MCA Student at Presidency University, Bengaluru. Focused on robust Java backend engineering, applied AI systems, and purposeful software development.
+            <p className="text-sm text-content-secondary max-w-md leading-relaxed font-sans">
+              AI / Software Development Intern & MCA Student (GPA 8.54/10) at Presidency University, Bengaluru. Experienced in building AI-integrated applications with Java, Spring Boot, Python and React.
             </p>
 
-            <div className="flex flex-col gap-2 text-xs font-mono text-nexus-muted">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-nexus-crimson shrink-0" />
-                <span>Bengaluru, Karnataka, India</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-nexus-crimson shrink-0" />
-                <a
-                  href="mailto:tt4632577@gmail.com?subject=Portfolio%20Inquiry%20%E2%80%94%20Tarun%20Gupta"
-                  className="hover:text-nexus-crimsonBright transition-colors select-all break-all text-nexus-secondary"
-                >
-                  tt4632577@gmail.com
-                </a>
-              </div>
+            <div className="flex flex-wrap items-center gap-4 text-xs font-sans text-content-muted pt-1">
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-accent-text shrink-0" />
+                <span>{profileData.location}</span>
+              </span>
+              <span>•</span>
+              <a
+                href={`mailto:${profileData.email}`}
+                className="hover:text-white transition-colors select-all"
+              >
+                {profileData.email}
+              </a>
             </div>
           </div>
 
-          {/* Quick Navigation Links (3 cols) */}
+          {/* Navigation Links (3 cols) */}
           <div className="md:col-span-3">
-            <h4 className="font-mono text-xs text-nexus-crimson uppercase tracking-widest mb-4">
+            <h4 className="font-sans text-xs font-semibold text-content-primary uppercase tracking-wider mb-3">
               Navigation
             </h4>
-            <ul className="space-y-2.5 text-xs font-mono text-nexus-muted">
+            <ul className="space-y-2 text-xs font-sans text-content-secondary">
               {navLinks.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="hover:text-nexus-crimsonBright transition-colors inline-block focus:outline-none focus-visible:ring-1 focus-visible:ring-nexus-crimson rounded"
+                    className="hover:text-white transition-colors inline-block focus:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded"
                   >
-                    // {item.name}
+                    {item.name}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Verified Profiles & Direct Contact (4 cols) */}
-          <div className="md:col-span-4">
-            <h4 className="font-mono text-xs text-nexus-crimson uppercase tracking-widest mb-4">
-              Verified Profiles
+          {/* Social Profiles (3 cols) */}
+          <div className="md:col-span-3">
+            <h4 className="font-sans text-xs font-semibold text-content-primary uppercase tracking-wider mb-3">
+              Connect
             </h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2.5 text-xs font-sans text-content-secondary">
+              <a
+                href="/Tarun_Gupta_Resume.pdf"
+                download="Tarun_Gupta_Resume.pdf"
+                className="inline-flex items-center gap-2 hover:text-white transition-colors font-medium text-accent-text"
+                aria-label="Download Tarun Gupta's Resume"
+              >
+                <Download className="w-3.5 h-3.5 text-accent-text" />
+                <span>Download Resume</span>
+              </a>
+
               <a
                 href={profileData.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-xs font-mono text-nexus-secondary hover:text-white group transition-colors"
+                className="inline-flex items-center gap-2 hover:text-white transition-colors"
                 aria-label="Tarun Gupta on GitHub"
               >
-                <div className="w-7 h-7 rounded-md bg-nexus-elevated border border-nexus-border flex items-center justify-center group-hover:border-nexus-borderAccent transition-colors">
-                  <Github className="w-3.5 h-3.5 text-nexus-muted group-hover:text-nexus-crimsonBright transition-colors" />
-                </div>
+                <Github className="w-3.5 h-3.5 text-content-muted" />
                 <span>GitHub Profile</span>
               </a>
 
@@ -95,23 +99,19 @@ export const Footer: React.FC = () => {
                 href={profileData.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-xs font-mono text-nexus-secondary hover:text-white group transition-colors"
+                className="inline-flex items-center gap-2 hover:text-white transition-colors"
                 aria-label="Tarun Gupta on LinkedIn"
               >
-                <div className="w-7 h-7 rounded-md bg-nexus-elevated border border-nexus-border flex items-center justify-center group-hover:border-nexus-borderAccent transition-colors">
-                  <Linkedin className="w-3.5 h-3.5 text-nexus-muted group-hover:text-nexus-crimsonBright transition-colors" />
-                </div>
+                <Linkedin className="w-3.5 h-3.5 text-content-muted" />
                 <span>LinkedIn Profile</span>
               </a>
 
               <a
-                href={`mailto:${profileData.email}?subject=Portfolio%20Inquiry%20%E2%80%94%20Tarun%20Gupta`}
-                className="flex items-center gap-2.5 text-xs font-mono text-nexus-secondary hover:text-white group transition-colors"
-                aria-label="Send email to Tarun Gupta"
+                href={`mailto:${profileData.email}`}
+                className="inline-flex items-center gap-2 hover:text-white transition-colors"
+                aria-label="Send direct email"
               >
-                <div className="w-7 h-7 rounded-md bg-nexus-elevated border border-nexus-border flex items-center justify-center group-hover:border-nexus-borderAccent transition-colors">
-                  <Mail className="w-3.5 h-3.5 text-nexus-muted group-hover:text-nexus-crimsonBright transition-colors" />
-                </div>
+                <Mail className="w-3.5 h-3.5 text-content-muted" />
                 <span>Send Direct Email</span>
               </a>
             </div>
@@ -119,18 +119,18 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-nexus-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-nexus-muted font-mono">
+        <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-content-muted font-sans">
           <div>
-            &copy; {new Date().getFullYear()} Tarun Gupta. NEXUS Crimson Edition. Engineered with precision.
+            &copy; {new Date().getFullYear()} Tarun Gupta. All rights reserved.
           </div>
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-nexus-muted hover:text-nexus-crimsonBright transition-colors p-1.5 rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-nexus-crimson cursor-pointer"
-            aria-label="Back to top of page"
+            className="inline-flex items-center gap-1.5 text-content-secondary hover:text-white transition-colors p-1 rounded focus:outline-none focus-visible:ring-1 focus-visible:ring-accent cursor-pointer"
+            aria-label="Back to top"
           >
             <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-nexus-crimson" />
+            <ArrowUp className="w-3.5 h-3.5 text-accent-text" />
           </button>
         </div>
       </div>

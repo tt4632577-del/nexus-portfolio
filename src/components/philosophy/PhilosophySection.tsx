@@ -44,52 +44,54 @@ export const PhilosophySection: React.FC = () => {
   return (
     <section
       id="philosophy"
-      className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-nexus-border relative scroll-mt-24"
+      className="py-16 sm:py-20 md:py-24 border-b border-border scroll-mt-20"
       aria-label="Development Philosophy"
     >
-      <SectionHeader
-        number="05"
-        title="Engineering Philosophy"
-        subtitle="Core principles guiding how I conceptualize, architect, and ship software systems."
-      />
+      <div className="container-shell">
+        <SectionHeader
+          number="04"
+          title="Engineering Philosophy"
+          subtitle="Core principles guiding how I conceptualize, architect, and ship software systems."
+        />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {principles.map((principle, idx) => {
-          const Icon = principle.icon;
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {principles.map((principle, idx) => {
+            const Icon = principle.icon;
 
-          return (
-            <motion.div
-              key={principle.title}
-              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.4, delay: shouldReduceMotion ? 0 : idx * 0.1 }}
-              className="rounded-2xl bg-nexus-surface border border-nexus-border p-6 sm:p-8 hover:border-nexus-borderAccent transition-all duration-300 group shadow-card flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-nexus-elevated border border-nexus-border flex items-center justify-center text-nexus-crimson group-hover:scale-105 transition-transform">
-                    <Icon className="w-5 h-5" />
+            return (
+              <motion.div
+                key={principle.title}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.25, delay: shouldReduceMotion ? 0 : idx * 0.05 }}
+                className="rounded-2xl bg-surface border border-border p-5 sm:p-6 hover:border-border-active transition-colors shadow-subtle flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-8 h-8 rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-accent-text">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <span className="font-sans text-[11px] font-medium text-accent-text bg-accent-subtle px-2 py-0.5 rounded border border-accent-border">
+                      {principle.tag}
+                    </span>
                   </div>
-                  <span className="font-mono text-xs text-nexus-crimsonBright bg-nexus-crimson/15 px-2.5 py-0.5 rounded-full border border-nexus-crimson/30">
-                    {principle.tag}
-                  </span>
-                </div>
 
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="font-mono text-xs text-nexus-dim">{principle.number}.</span>
-                  <h3 className="font-display font-bold text-lg sm:text-xl text-nexus-text group-hover:text-nexus-crimsonBright transition-colors">
-                    {principle.title}
-                  </h3>
-                </div>
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="font-mono text-xs text-content-muted">{principle.number}.</span>
+                    <h3 className="font-display font-bold text-base sm:text-lg text-content-primary">
+                      {principle.title}
+                    </h3>
+                  </div>
 
-                <p className="text-sm text-nexus-secondary leading-relaxed font-sans">
-                  {principle.description}
-                </p>
-              </div>
-            </motion.div>
-          );
-        })}
+                  <p className="text-xs sm:text-sm text-content-secondary leading-relaxed font-sans">
+                    {principle.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

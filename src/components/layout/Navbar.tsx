@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Terminal } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Download } from 'lucide-react';
 import { NavItem } from '../../types';
 
 const navItems: NavItem[] = [
-  { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Education', href: '#education' },
+  { name: 'Philosophy', href: '#philosophy' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -21,7 +20,7 @@ export const Navbar: React.FC = () => {
       setIsScrolled(window.scrollY > 20);
 
       // Section spy
-      const sections = ['hero', 'about', 'skills', 'projects', 'education', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'projects', 'philosophy', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const section of sections) {
@@ -75,35 +74,35 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
         isScrolled
-          ? 'bg-nexus-bg/90 backdrop-blur-md border-b border-nexus-border py-3 shadow-lg'
-          : 'bg-transparent py-5'
+          ? 'bg-canvas/90 backdrop-blur-md border-b border-border py-2.5 shadow-subtle'
+          : 'bg-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand / Wordmark */}
+      <div className="container-shell flex items-center justify-between">
+        {/* Brand / Name */}
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, '#hero')}
-          className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-crimson rounded-md px-1 py-0.5"
-          aria-label="Tarun Gupta - NEXUS Crimson Home"
+          className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-1 py-0.5"
+          aria-label="Tarun Gupta - Home"
         >
-          <div className="w-8 h-8 rounded-lg bg-nexus-surface border border-nexus-border flex items-center justify-center group-hover:border-nexus-borderAccent transition-colors">
-            <Terminal className="w-4 h-4 text-nexus-crimson transition-transform group-hover:scale-110" />
+          <div className="w-8 h-8 rounded-lg bg-surface-elevated border border-border flex items-center justify-center font-mono font-bold text-xs text-accent-text group-hover:border-border-active transition-colors">
+            TG
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-bold tracking-wider text-sm sm:text-base text-nexus-text group-hover:text-nexus-crimsonBright transition-colors">
-              NEXUS <span className="text-nexus-dim font-mono text-xs font-normal">CRIMSON</span>
-            </span>
-            <span className="text-[10px] font-mono text-nexus-dim tracking-widest uppercase">
+            <span className="font-display font-bold text-sm sm:text-base text-content-primary group-hover:text-white transition-colors tracking-tight">
               Tarun Gupta
+            </span>
+            <span className="text-[11px] font-sans text-content-muted leading-none">
+              AI / Software Development Intern
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-nexus-surface/80 border border-nexus-border rounded-full px-3 py-1.5 backdrop-blur-md">
+        <nav className="hidden md:flex items-center gap-1 bg-surface border border-border rounded-full px-2 py-1 backdrop-blur-md shadow-subtle">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.replace('#', '');
             return (
@@ -111,10 +110,10 @@ export const Navbar: React.FC = () => {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`px-3.5 py-1 text-xs font-medium rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-crimson ${
+                className={`px-3 py-1 text-xs rounded-full transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   isActive
-                    ? 'bg-nexus-crimson text-white font-semibold shadow-sm'
-                    : 'text-nexus-secondary hover:text-white hover:bg-white/5'
+                    ? 'bg-surface-elevated text-content-primary font-semibold border border-border-active shadow-subtle'
+                    : 'text-content-secondary hover:text-content-primary hover:bg-white/5'
                 }`}
               >
                 {item.name}
@@ -123,23 +122,30 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Right Action: Connect / Status badge */}
-        <div className="hidden lg:flex items-center gap-3">
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-nexus-surface border border-nexus-border text-xs text-nexus-muted">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-nexus-crimson opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-nexus-crimson"></span>
-            </span>
-            <span className="font-mono text-[11px] text-nexus-secondary">Software Developer</span>
+        {/* Right Action: Available Status, Resume & Contact CTA */}
+        <div className="hidden lg:flex items-center gap-2.5">
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-elevated border border-border text-xs text-content-secondary">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span className="text-[11px] font-sans">Available for Roles</span>
           </div>
+
+          <a
+            href="/Tarun_Gupta_Resume.pdf"
+            download="Tarun_Gupta_Resume.pdf"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-elevated hover:bg-surface-subtle border border-border hover:border-border-active text-content-primary hover:text-white text-xs font-medium shadow-subtle transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            aria-label="Download Tarun Gupta's Resume"
+          >
+            <Download className="w-3.5 h-3.5 text-accent-text" />
+            <span>Resume</span>
+          </a>
 
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, '#contact')}
-            className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-nexus-surface border border-nexus-border hover:border-nexus-borderAccent text-xs font-medium text-nexus-text hover:text-nexus-crimsonBright transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-crimson"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-accent text-white hover:bg-accent-hover text-xs font-semibold shadow-subtle transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
           >
             <span>Let's Talk</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-nexus-crimson" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
 
@@ -147,7 +153,7 @@ export const Navbar: React.FC = () => {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg bg-nexus-surface border border-nexus-border text-nexus-text hover:text-nexus-crimson focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-crimson"
+          className="md:hidden p-2 rounded-lg bg-surface border border-border text-content-primary hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-accent cursor-pointer"
           aria-expanded={mobileMenuOpen}
           aria-label="Toggle navigation menu"
         >
@@ -159,16 +165,16 @@ export const Navbar: React.FC = () => {
       {mobileMenuOpen && (
         <>
           <div
-            className="md:hidden fixed inset-0 top-14 bg-black/80 backdrop-blur-sm z-30"
+            className="md:hidden fixed inset-0 top-14 bg-black/70 backdrop-blur-sm z-30"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
           <div 
-            className="md:hidden fixed inset-x-0 top-14 bg-nexus-surface/98 backdrop-blur-xl border-b border-nexus-border px-6 py-6 shadow-2xl transition-all z-40 max-h-[calc(100vh-3.5rem)] overflow-y-auto"
+            className="md:hidden fixed inset-x-0 top-14 bg-surface border-b border-border px-6 py-5 shadow-elevated transition-all z-40 max-h-[calc(100vh-3.5rem)] overflow-y-auto"
             role="navigation"
-            aria-label="Mobile Navigation Drawer"
+            aria-label="Mobile Navigation"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1.5">
               {navItems.map((item) => {
                 const isActive = activeSection === item.href.replace('#', '');
                 return (
@@ -176,24 +182,34 @@ export const Navbar: React.FC = () => {
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                    className={`px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                       isActive
-                        ? 'bg-nexus-crimson text-white font-semibold shadow-sm'
-                        : 'text-nexus-secondary hover:text-white hover:bg-white/5'
+                        ? 'bg-surface-elevated text-content-primary font-semibold border border-border-active'
+                        : 'text-content-secondary hover:text-content-primary hover:bg-white/5'
                     }`}
                   >
                     {item.name}
                   </a>
                 );
               })}
-              <div className="pt-4 border-t border-nexus-border mt-2 flex flex-col gap-3">
+              <div className="pt-3 border-t border-border mt-2 flex flex-col gap-2">
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact')}
-                  className="flex items-center justify-center gap-2 py-3 rounded-lg bg-nexus-crimson text-white font-semibold text-sm hover:bg-nexus-crimsonHover transition-colors shadow-sm"
+                  className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-accent text-white font-semibold text-sm hover:bg-accent-hover transition-colors shadow-subtle"
                 >
-                  <span>Get in Touch</span>
+                  <span>Let's Talk</span>
                   <ArrowUpRight className="w-4 h-4" />
+                </a>
+
+                <a
+                  href="/Tarun_Gupta_Resume.pdf"
+                  download="Tarun_Gupta_Resume.pdf"
+                  className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-surface-elevated border border-border text-content-primary font-medium text-sm hover:border-border-active hover:text-white transition-colors"
+                  aria-label="Download Tarun Gupta's Resume PDF"
+                >
+                  <Download className="w-4 h-4 text-accent-text" />
+                  <span>Download Resume (PDF)</span>
                 </a>
               </div>
             </div>

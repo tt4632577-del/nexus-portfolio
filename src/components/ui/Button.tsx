@@ -8,6 +8,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   href?: string;
   target?: string;
   rel?: string;
+  download?: string | boolean;
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
 }
@@ -20,23 +21,24 @@ export const Button: React.FC<ButtonProps> = ({
   href,
   target,
   rel,
+  download,
   children,
   icon,
   iconPosition = 'right',
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-nexus-crimson disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+    'inline-flex items-center justify-center font-medium transition-all duration-150 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:opacity-50 disabled:pointer-events-none cursor-pointer select-none';
 
   const variants = {
     primary:
-      'bg-nexus-crimson text-white hover:bg-nexus-crimsonHover font-semibold shadow-sm hover:shadow-glow-crimson active:scale-[0.98]',
+      'bg-accent text-white hover:bg-accent-hover font-semibold shadow-subtle active:scale-[0.98]',
     secondary:
-      'bg-nexus-surface text-nexus-text border border-nexus-border hover:border-nexus-borderAccent hover:bg-nexus-elevated active:scale-[0.98]',
+      'bg-surface-elevated text-content-primary border border-border hover:border-border-active hover:bg-surface-subtle active:scale-[0.98]',
     outline:
-      'bg-transparent text-nexus-text border border-nexus-border hover:border-nexus-crimson hover:text-nexus-crimsonBright active:scale-[0.98]',
+      'bg-transparent text-content-primary border border-border hover:border-border-active hover:bg-surface-elevated active:scale-[0.98]',
     ghost:
-      'bg-transparent text-nexus-secondary hover:text-nexus-text hover:bg-white/5',
+      'bg-transparent text-content-secondary hover:text-content-primary hover:bg-white/5',
   };
 
   const sizes = {
@@ -53,6 +55,7 @@ export const Button: React.FC<ButtonProps> = ({
         href={href}
         target={target}
         rel={target === '_blank' ? (rel || 'noopener noreferrer') : rel}
+        download={download as any}
         className={combinedClasses}
         {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >

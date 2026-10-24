@@ -15,11 +15,11 @@ export const Badge: React.FC<BadgeProps> = ({
   className,
 }) => {
   const variants = {
-    crimson: 'bg-nexus-crimson/15 text-nexus-crimsonBright border-nexus-crimson/30',
-    lime: 'bg-nexus-crimson/15 text-nexus-crimsonBright border-nexus-crimson/30', // Aliased for seamless compatibility
-    cyan: 'bg-white/5 text-nexus-text border-nexus-border',
-    neutral: 'bg-nexus-surface text-nexus-secondary border-nexus-border',
-    outline: 'bg-transparent text-nexus-muted border-nexus-border',
+    crimson: 'bg-accent-subtle text-accent-text border-accent-border',
+    lime: 'bg-accent-subtle text-accent-text border-accent-border',
+    cyan: 'bg-surface-elevated text-content-secondary border-border',
+    neutral: 'bg-surface-elevated text-content-secondary border-border',
+    outline: 'bg-transparent text-content-muted border-border',
   };
 
   const sizes = {
